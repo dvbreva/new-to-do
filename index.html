@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+
+    
+</head>
+<body>
+    <!-- The Modal -->
+    <div class="modal fade" id="app-info">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">How to use 'To-Do' App?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    In order to use this add your todo item's title in the place where it says <b>'To Do Title'</b> and then choose the desired date from the datepicker. Finally click on the button <b>"Add Item".</b><br><br>
+                    If you want to mark an item as finished click on <b>'Completed'.</b> <br>
+                    If you want to revert an item back to its unfinished state click on <b>'Undo'.</b> <br>
+                    If you want to remove an item simply click on <b>'Remove'.</b> <br><br>
+                    Enjoy.
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- The to-do itself -->
+    <h1>To-Do List</h1>
+    <div class="container">
+           
+        <div id="inner-container">
+        <form action="#" id="todo-form">
+            <input type="text" name="item" id="item" placeholder="To Do Title" />
+            <input type="date" id="date" name="to-do-start">
+            <button type="submit" class="add-me-button">Add Me</button>
+            <button type="button" class="btn btn-primary modal-button" data-toggle="modal" data-target="#app-info">Instructions</button>
+        </form>
+
+                <table class="table">       
+                     <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th></th>
+                            </tr>
+                    </thead> 
+                    
+                    <tbody id="items-list"></tbody>  
+                    
+                    <script id="template" type="text/x-handlebars-template">
+                        {{#each todos}}
+                                {{#if isComplete}}      
+                                    <tr>
+                                        <td class="completed">{{item}}</td>
+                                        <td class="completed">{{date}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-success btn-toggle complete-button" data-id="{{id}}">Undo</button>
+                                            <button type="button" class="btn btn-danger btn-remove remove-button" data-id="{{id}}">Remove</button>
+                                        </td>
+                                    </tr>
+                               {{else}}
+                               <tr>
+                                    <td>{{item}}</td>
+                                    <td>{{date}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success btn-toggle complete-button" data-id="{{id}}">Complete</button>
+                                        <button type="button" class="btn btn-danger btn-remove remove-button" data-id="{{id}}">Remove</button>
+                                    </td>
+                                </tr>
+                                {{/if}}
+                        {{/each}}
+                    </script>
+           
+                </table>  
+            </div>
+    </div>
+    
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="scripts/handlebars-v4.1.2.js"></script>
+    <script src="scripts/main.js"></script>
+   
+</body>
+</html>
