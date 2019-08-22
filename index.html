@@ -56,9 +56,17 @@
                             </tr>
                     </thead> 
                     
-                    <tbody id="items-list"></tbody>  
-                    
-                    <script id="template" type="text/x-handlebars-template">
+                    <tbody id="items-list"></tbody>
+                </table>  
+            </div>
+    </div>
+    
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="scripts/handlebars-v4.1.2.js"></script>
+    <script src="scripts/main.js"></script>
+    <script id="template" type="text/x-handlebars-template">
                         {{#each todos}}
                                 {{#if isComplete}}      
                                     <tr>
@@ -82,15 +90,6 @@
                         {{/each}}
                     </script>
            
-                </table>  
-            </div>
-    </div>
-    
-   
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="scripts/handlebars-v4.1.2.js"></script>
-    <script src="scripts/main.js"></script>
    
 </body>
 </html>
